@@ -10,6 +10,7 @@ import { Product, Recipe } from './DataObjects/index';
 
 import RecipeList from './RecipeList';
 import ProductList from './ProductList';
+import AddRecipe from './AddRecipe';
 
 interface RecipeListsState{
   products: Product[];
@@ -105,7 +106,7 @@ class RecipeLists extends React.Component<any, RecipeListsState> {
             ]
           }
         ],
-        addProductName: ""
+        addProductName: "",
       };
   }
 
@@ -121,6 +122,12 @@ class RecipeLists extends React.Component<any, RecipeListsState> {
   private productNameChanged(event: {}, newValue: string) : void{
     this.setState(previousState => ({
       addProductName: newValue
+    }));
+  }
+
+  private addRecipe(recipe: Recipe): void{
+    this.setState(previousState => ({
+      recipes: [...previousState.recipes,recipe ]
     }));
   }
 
@@ -161,6 +168,9 @@ class RecipeLists extends React.Component<any, RecipeListsState> {
               actAsExpander={true}
               showExpandableButton={true}
             />
+            <AddRecipe
+              onRecipeAdded={(r)=>this.addRecipe(r)}
+              products={products} />
             <CardText expandable={true}>
               <RecipeList recipes={recipes}/>
             </CardText>
