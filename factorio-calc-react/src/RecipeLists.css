@@ -1,0 +1,11 @@
+.cardContainer{
+    display: flex;
+}
+
+.cardContent{
+    flex: 10 10;
+}
+
+.cardSpacer{
+    flex: 1 1
+}
