@@ -6,7 +6,7 @@ import FloatingActionButton from 'material-ui/FloatingActionButton';
 import ContentAdd from 'material-ui/svg-icons/content/add';
 import TextField from 'material-ui/TextField';
 
-import { Product, Recipe } from './DataObjects/index';
+import { Product, Recipe } from '../DataObjects/index';
 
 import RecipeList from './RecipeList';
 import ProductList from './ProductList';

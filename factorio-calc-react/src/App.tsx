@@ -3,7 +3,7 @@ import './App.css';
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
-import RecipeLists from './RecipeLists';
+import RecipeLists from './Components/RecipeLists';
 
 class App extends React.Component {
   render() {

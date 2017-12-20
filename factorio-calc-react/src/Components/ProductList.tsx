@@ -1,7 +1,6 @@
 import * as React from 'react';
-import './App.css';
 
-import { Product } from './DataObjects/index';
+import { Product } from '../DataObjects/index';
 
 import {
   Table,

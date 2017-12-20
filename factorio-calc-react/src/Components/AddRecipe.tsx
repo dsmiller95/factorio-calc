@@ -8,7 +8,7 @@ import DropDownMenu from 'material-ui/DropDownMenu';
 import MenuItem from 'material-ui/MenuItem';
 import RaisedButton from 'material-ui/RaisedButton';
 
-import {Product, Recipe} from './DataObjects/index';
+import {Product, Recipe} from '../DataObjects/index';
 
 import ProductList from './ProductList';
 

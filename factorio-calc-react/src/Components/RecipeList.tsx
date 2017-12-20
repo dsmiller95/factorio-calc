@@ -1,7 +1,6 @@
 import * as React from 'react';
-import './App.css';
 
-import {Recipe} from './DataObjects/index';
+import {Recipe} from '../DataObjects/index';
 
 import {
     Table,
