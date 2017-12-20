@@ -13,7 +13,8 @@ import {
 } from 'material-ui/Table';
 
 export interface ProductListProps {
-  products: Product[];
+  products: [Product, Number][];
+  hasNumbers: boolean;
 }
 
 class ProductList extends React.Component<ProductListProps, any> {
@@ -23,7 +24,7 @@ class ProductList extends React.Component<ProductListProps, any> {
   }
 
   render() {
-    const products: Product[] = this.props.products;
+    const products: [Product, Number][] = this.props.products;
     
     return (
       <Table>
@@ -31,13 +32,23 @@ class ProductList extends React.Component<ProductListProps, any> {
           <TableRow>
             <TableHeaderColumn>Name</TableHeaderColumn>
           </TableRow>
+          {this.props.hasNumbers ? (
+            <TableRow>
+              <TableHeaderColumn>#</TableHeaderColumn>
+            </TableRow>
+          ) : ""}
         </TableHeader>
         <TableBody>
           {products.map((prod, index) => 
             <TableRow key={index}>
               <TableRowColumn>
-                {prod.name}
+                {prod[0].name}
               </TableRowColumn>
+              {this.props.hasNumbers ? (
+                <TableRowColumn>
+                  {prod[1]}
+                </TableRowColumn>
+              ) : ""}
             </TableRow>
           )}
         </TableBody>

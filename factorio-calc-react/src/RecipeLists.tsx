@@ -156,7 +156,10 @@ class RecipeLists extends React.Component<any, RecipeListsState> {
               />
             </CardText>
             <CardText expandable={true}>
-              <ProductList products={products}/>
+              <ProductList
+              products={products.map((val) : [Product, Number] => [val, 0])}
+              hasNumbers={false}
+              />
             </CardText>
           </Card>
         </div>

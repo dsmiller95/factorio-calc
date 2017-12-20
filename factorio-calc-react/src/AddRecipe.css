@@ -1,0 +1,7 @@
+.componentsContainer{
+    display: flex;
+}
+
+.componentsDiv{
+    flex: 1 1;
+}
