@@ -104,7 +104,7 @@ class AddRecipe extends React.Component < AddRecipeProps, AddRecipeState > {
         <div>
           <RaisedButton label="Add Recipe" style={buttonStyle} onClick={(event) => (this.addRecipe(event))}/>
           <TextField
-            hintText="Product Name"
+            hintText="Recipe Name"
             value={this.state.addRecipeName}
             onChange={(event, val) => (this.recipeNameChanged(event, val))}/>
         </div>

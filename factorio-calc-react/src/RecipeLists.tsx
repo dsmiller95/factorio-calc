@@ -1,7 +1,7 @@
 import * as React from 'react';
 import './RecipeLists.css';
 
-import { Card, CardHeader, CardText } from 'material-ui/Card';
+import { Tabs, Tab } from 'material-ui/Tabs';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import ContentAdd from 'material-ui/svg-icons/content/add';
 import TextField from 'material-ui/TextField';
@@ -11,6 +11,7 @@ import { Product, Recipe } from './DataObjects/index';
 import RecipeList from './RecipeList';
 import ProductList from './ProductList';
 import AddRecipe from './AddRecipe';
+import { Paper } from 'material-ui';
 
 interface RecipeListsState{
   products: Product[];
@@ -135,50 +136,41 @@ class RecipeLists extends React.Component<any, RecipeListsState> {
     const products = this.state.products;
     const recipes = this.state.recipes;
 
+    const paperStyle = {
+      margin: 20,
+      'justify-content': 'flex-start',
+      display: 'flex',
+    };
+
     return (
-      <div className="cardContainer">
-        <div className="cardContent">
-          <Card>
-            <CardHeader
-              title="Products"
-              actAsExpander={true}
-              showExpandableButton={true}
+      <div>
+        <Tabs>
+          <Tab label="Producs">
+            <FloatingActionButton mini={true}
+              onClick={(event) => (this.addProduct(event))}>
+              <ContentAdd />
+            </FloatingActionButton>
+            <TextField
+              hintText="Product Name"
+              value={this.state.addProductName}
+              onChange={(event, val) => (this.productNameChanged(event, val))}
             />
-            <CardText>
-              <FloatingActionButton mini={true}
-                onClick={(event) => (this.addProduct(event))}>
-                <ContentAdd />
-              </FloatingActionButton>
-              <TextField
-                hintText="Product Name"
-                value={this.state.addProductName}
-                onChange={(event, val) => (this.productNameChanged(event, val))}
-              />
-            </CardText>
-            <CardText expandable={true}>
-              <ProductList
-              products={products.map((val) : [Product, Number] => [val, 0])}
+            <ProductList
+              products={
+                products.map((val) : [Product, Number] => [val, 0])
+              }
               hasNumbers={false}
-              />
-            </CardText>
-          </Card>
-        </div>
-        <div className="cardSpacer"/>
-        <div className="cardContent">
-          <Card>
-            <CardHeader
-              title="Recipes"
-              actAsExpander={true}
-              showExpandableButton={true}
             />
-            <AddRecipe
-              onRecipeAdded={(r)=>this.addRecipe(r)}
-              products={products} />
-            <CardText expandable={true}>
-              <RecipeList recipes={recipes}/>
-            </CardText>
-          </Card>
-        </div>
+          </Tab>
+          <Tab label="Recipes">
+            <Paper style={paperStyle}>
+              <AddRecipe
+                onRecipeAdded={(r)=>this.addRecipe(r)}
+                products={products} />
+            </Paper>
+            <RecipeList recipes={recipes}/>
+          </Tab>
+        </Tabs>
       </div>
     );
   }

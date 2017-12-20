@@ -36,7 +36,7 @@ class ProductList extends React.Component<ProductListProps, any> {
             <TableRow>
               <TableHeaderColumn>#</TableHeaderColumn>
             </TableRow>
-          ) : ""}
+          ) : <a></a>}
         </TableHeader>
         <TableBody>
           {products.map((prod, index) => 
@@ -48,7 +48,7 @@ class ProductList extends React.Component<ProductListProps, any> {
                 <TableRowColumn>
                   {prod[1]}
                 </TableRowColumn>
-              ) : ""}
+              ) : <a></a>}
             </TableRow>
           )}
         </TableBody>
