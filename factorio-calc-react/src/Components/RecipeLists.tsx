@@ -24,8 +24,8 @@ class RecipeLists extends React.Component<any, RecipeListsState> {
   constructor(props: {}) {
     super(props);
 
-    var products = [
-      {
+    var products: Product[] = [
+      /*{
         name: 'iron ore'
       }, {
         name: 'copper ore'
@@ -41,14 +41,14 @@ class RecipeLists extends React.Component<any, RecipeListsState> {
         name: 'green circuits'
       }, {
         name: 'inserter'
-      }
+      }*/
     ];
 
     this.state = 
       {
         products: products,
         recipes: [
-          {
+          /*{
             name: 'iron smelting',
             inputs: [
               [products[0], 1]
@@ -105,7 +105,7 @@ class RecipeLists extends React.Component<any, RecipeListsState> {
             outputs: [
               [products[7], 2]
             ]
-          }
+          }*/
         ],
         addProductName: "",
       };
